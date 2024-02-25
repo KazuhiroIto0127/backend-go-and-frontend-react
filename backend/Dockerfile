@@ -3,16 +3,14 @@
 # -----------
 FROM golang:1.22.0-alpine3.19 as builder
 
-ENV CGO_ENABLED=0
-ENV GOOS=linux
-ENV GOARCH=amd64
 # ログに出力する時間をJSTにするため、タイムゾーンを設定
 ENV TZ /usr/share/zoneinfo/Asia/Tokyo
 
 WORKDIR /app
 COPY ./ /app
 
-RUN go install github.com/cosmtrek/air@v1.27.3
+RUN apk update && apk add git
+RUN go install github.com/cosmtrek/air@v1.51.0
 RUN go install github.com/ramya-rao-a/go-outline@latest
 RUN go install golang.org/x/tools/gopls@latest
 

@@ -15,8 +15,8 @@ type User struct {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	log.Print("helloworld: received a request")
-	u := User{ Id : 1, Name : "Thome", Email : "thome@example.com"}
+	log.Print("helloworld: received a request!")
+	u := User{ Id : 1, Name : "太郎", Email : "thome@example.com"}
 
     json, err := json.Marshal(u)
     if err != nil {
