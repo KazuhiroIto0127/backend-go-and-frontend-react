@@ -5,6 +5,7 @@
 開発環境（build用）
 
 ```
+docker build
 docker compose up -d backend-dev
 ```
 
