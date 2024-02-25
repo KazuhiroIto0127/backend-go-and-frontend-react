@@ -6,9 +6,11 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/usr/src/app # ローカルをコンテナ内にマウント
-    command: sh -c "yarn start"
+    image: frontend
+    container_name: frontend
+    command: sh -c "npm run dev"
     ports:
-      - "3000:3000"
+      - "5173:5173"
     stdin_open: true
   # ============
   # 開発用

@@ -34,8 +34,16 @@ docker run -t go-backend-prod
 
 ### frontendのイメージを作成してcreate-react-app
 
- 1. docker compose build
- 2. docker compose run --rm frontend sh -c "npm install -g create-react-app && create-react-app . --template typescript"
+```
+docker compose build frontend
+docker compose run --rm frontend sh -c "npm install"
+docker compose up -d frontend
+```
+
+下記はすでに実行済みなので、実行不要だが最初に実行したのでメモ
+```
+docker compose run --rm frontend sh -c "npm create vite@latest"
+```
 
 ### frontend
 firebase hosting
