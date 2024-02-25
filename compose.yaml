@@ -10,9 +10,29 @@ services:
     ports:
       - "3000:3000"
     stdin_open: true
-  backend:
+  # ============
+  # 開発用
+  # ============
+  backend-dev:
     build:
       context: ./backend
       dockerfile: Dockerfile
+      target: builder
     ports:
-      - 8080:8080
+      - "8080:8080"
+    container_name: go-backend-dev
+    tty: true
+    volumes:
+      - ./backend:/app
+  # ============
+  # 本番用
+  # ============
+  backend-prod:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "8081:8080"
+    container_name: go-backend-prod
+    tty: true
