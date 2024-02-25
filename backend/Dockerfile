@@ -16,8 +16,6 @@ RUN go install golang.org/x/tools/gopls@latest
 
 RUN go build -o main ./main.go
 
-EXPOSE 8080
-
 # -----------
 # production環境
 # -----------
